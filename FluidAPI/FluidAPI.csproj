@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Com\Fluid\Vo\ABaseFluidJSONObject.cs" />
+    <Compile Include="Com\Fluid\Vo\Ws\Auth\AuthRequest.cs" />
+    <Compile Include="Com\Fluid\Vo\Ws\Auth\AppRequestToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

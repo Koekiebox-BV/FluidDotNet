@@ -32,49 +32,23 @@ using Newtonsoft.Json;
 /// <remarks>
 /// 
 /// </remarks>
-namespace Com.Fluid.Vo
+namespace Com.Fluid.Vo.Ws.Auth
 {
     /// <summary>
     /// Base JSON value object for Fluid related objects.
     /// </summary>
-    public abstract class ABaseFluidJSONObject
+    public class AuthRequest : ABaseFluidJSONObject
     {
         /// <summary>
-        /// Get and set the id.
+        /// Get and set the username.
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public long Id { get; set; }
+        [JsonProperty(PropertyName = "username")]
+        public string Username { get; set; }
 
         /// <summary>
-        /// Get and set the service ticket.
+        /// Get and set the lifetime.
         /// </summary>
-        [JsonProperty(PropertyName = "serviceTicket")]
-        public string ServiceTicket { get; set; }
-
-        /// <summary>
-        /// Get and set the echo.
-        /// </summary>
-        [JsonProperty(PropertyName = "echo")]
-        public string Echo { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="baseFluidJsonObjParam"></param>
-        /// <returns></returns>
-        public static string ObjectToString(ABaseFluidJSONObject baseFluidJsonObjParam)
-        {
-            return JsonConvert.SerializeObject(baseFluidJsonObjParam);
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="jsonStringParam">The JSON text to parse.</param>
-        /// <returns></returns>
-        public static object StringToObject(string jsonStringParam)
-        {
-            return JsonConvert.DeserializeObject(jsonStringParam);
-        }
+        [JsonProperty(PropertyName = "lifetime")]
+        public long Lifetime { get; set; }
     }
 }

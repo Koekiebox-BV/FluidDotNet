@@ -15,7 +15,7 @@
  */
 #endregion
 
-using FluidAPI.Com.Fluid.Vo;
+using Com.Fluid.Vo;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,22 +30,32 @@ using System.Threading.Tasks;
 /// <remarks>
 /// 
 /// </remarks>
-namespace FluidWSDotNetClient.Com.Fluid.Ws.Client.V1
+namespace Com.Fluid.Ws.Client.V1
 {
     /// <summary>
     /// 
     /// </summary>
     public abstract class ABaseClientWS
     {
+        private string endpointUrl = "https://localhost:8443/fluid-ws/";
 
-
-        public ABaseFluidJSONObject PostJSONWebRequest(ABaseFluidJSONObject objectToPostParam)
+        /// <summary>
+        /// Posts the <code>objectToPostParam</code> to <code>postfixUrlParam</code>.
+        /// </summary>
+        /// <param name="objectToPostParam"></param>
+        /// <param name="postfixUrlParam"></param>
+        /// <returns></returns>
+        public ABaseFluidJSONObject PostJSONWebRequest(
+            ABaseFluidJSONObject objectToPostParam,
+            string postfixUrlParam)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://url");
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(
+                endpointUrl + postfixUrlParam);
 
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
-
+            httpWebRequest.UserAgent = "Fluid DotNet Client";
+            
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                 string json = ABaseFluidJSONObject.ObjectToString(objectToPostParam);
