@@ -33,7 +33,7 @@ using System.Threading.Tasks;
 namespace Com.Fluid.Ws.Client.V1
 {
     /// <summary>
-    /// 
+    /// Base class for Web Service client.
     /// </summary>
     public abstract class ABaseClientWS
     {
